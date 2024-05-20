@@ -1,0 +1,41 @@
+package dao.Impl;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import utils.HibernateUtils;
+import ch04.ex01.dao.CategoryDao;
+import ch04.ex01.model.Category;
+import dao.ICategoryDao;
+
+public class CategoryDaoImpl implements ICategoryDao {
+
+	SessionFactory  factory;
+
+	@Override
+	public model.Category findById(Integer categoryId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public model.Category findByName(String categoryName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public model.Category save(model.Category category) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<model.Category> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

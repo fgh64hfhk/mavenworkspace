@@ -1,0 +1,53 @@
+package service.Impl;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import dao.ICategoryDao;
+import dao.IProductEntityDao;
+import dao.Impl.CategoryDaoImpl;
+import dao.Impl.ProductEntityDaoImpl;
+import model.ProductEntity;
+import service.IProductEntityService;
+import utils.HibernateUtils;
+
+public class ProductEntityServiceImpl implements IProductEntityService {
+
+	ICategoryDao categoryDao;
+	IProductEntityDao productEntityDao;
+	SessionFactory factory;
+
+	public ProductEntityServiceImpl() {
+		this.categoryDao = new CategoryDaoImpl();
+		this.productEntityDao = new ProductEntityDaoImpl();
+		this.factory = HibernateUtils.getSessionFactory();
+	}
+
+	@Override
+	public ProductEntity findById(Integer productEntityId) {
+		
+		return null;
+	}
+
+	@Override
+	public ProductEntity findByName(String productEntityName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ProductEntity save(ProductEntity productEntity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ProductEntity> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

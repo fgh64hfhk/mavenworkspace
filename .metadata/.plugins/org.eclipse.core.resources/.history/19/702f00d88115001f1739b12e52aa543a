@@ -1,0 +1,47 @@
+package initializer;
+
+import java.io.File;
+import java.util.Iterator;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import model.ProductEntity;
+import service.ICategoryService;
+import service.IProductEntityService;
+import service.Impl.CategoryServiceImpl;
+import service.Impl.ProductEntityServiceImpl;
+import utils.JSONUtil;
+
+public class Initializer {
+	ICategoryService categoryService;
+	IProductEntityService productEntityService;
+
+	public Initializer() {
+		categoryService = new CategoryServiceImpl();
+		productEntityService = new ProductEntityServiceImpl();
+	}
+
+	public static void initialize_product() {
+		File file = new File("安全帽.json");
+		JSONObject jsonObject = JSONUtil.createJSONObject(file);
+		
+		JSONArray array = jsonObject.getJSONArray("安全帽");
+		for (int i = 0; i < array.length(); i++) {
+			ProductEntity product = new ProductEntity();
+			String[] strs = array.getJSONObject(i).getString("型號").split(" ");
+			product.setModel(strs[0].trim());
+			product.setSubCategory(array.getJSONObject(i).getString("種類"));
+			product.setBrand(array.getJSONObject(i).getString("品牌"));
+			product.setName(array.getJSONObject(i).getString("型號"));
+			product.setDescription(array.getJSONObject(i).getString("介紹"));
+			product.setPrice(array.getJSONObject(i).getString(""));
+			product.setCategory(array.getJSONObject(i).getString(""));
+		}
+		for (Object object : array) {
+			JSONObject object2 = (JSONObject) object;
+			object2.getString("型號");
+		}
+	}
+	
+}

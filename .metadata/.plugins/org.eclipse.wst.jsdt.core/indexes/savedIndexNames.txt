@@ -1,0 +1,1 @@
+INDEX VERSION 1.4+C:\Users\user\eclipse-mavenworkspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes

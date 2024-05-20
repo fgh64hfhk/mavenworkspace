@@ -1,0 +1,31 @@
+package test_utils;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.io.File;
+
+import org.json.JSONObject;
+import org.junit.Test;
+
+import utils.JSONUtil;
+
+public class JSONUtilTest2 {
+	
+	@Test
+	public void testCreateJSONObject() {
+
+		File file = new File("init/安全帽.json");
+		
+		// 使用 JSONUtil 來解析文件
+		JSONUtil util = new JSONUtil();
+		JSONObject jsonObject = util.createJSONObject(file);
+		
+		// 確保 JSON 對象不為空
+		assertNotNull(jsonObject);
+		
+		// 驗證 JSON 對象的內容
+		assertEquals("value1", jsonObject.getString("key1"));
+		
+	}
+}

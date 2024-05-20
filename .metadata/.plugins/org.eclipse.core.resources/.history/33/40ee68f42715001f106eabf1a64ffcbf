@@ -1,0 +1,24 @@
+package initializer;
+
+import java.io.File;
+
+import org.json.JSONObject;
+
+import service.ICategoryService;
+import service.IProductEntityService;
+import service.Impl.CategoryServiceImpl;
+import service.Impl.ProductEntityServiceImpl;
+
+public class Initializer {
+	ICategoryService categoryService;
+	IProductEntityService productEntityService;
+
+	public Initializer() {
+		categoryService = new CategoryServiceImpl();
+		productEntityService = new ProductEntityServiceImpl();
+	}
+	
+	public JSONObject createJSONObject(File file) {
+		
+	}
+}

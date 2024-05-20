@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "hibernate-configuration-3.0.dtd" >
+<hibernate-configuration>
+  <session-factory name="">
+    <property name="">property</property>
+    <mapping class="" file="" jar="" package="" resource=""/>
+    <class-cache class="" include="all" region="" usage="read-only"/>
+    <event type="auto-flush"/>
+    <listener class="" type="auto-flush"/>
+  </session-factory>
+  <security context="">
+    <grant actions="" entity-name="" role=""/>
+  </security>
+</hibernate-configuration>

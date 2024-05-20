@@ -1,0 +1,21 @@
+package dao;
+
+import model.ProductEntity;
+
+public interface IProductEntityDao {
+	
+	ProductEntity findById(Integer productEntityId);
+	// 新增一筆ProductEntity物件到資料庫
+	ProductEntity save(ProductEntity emp);
+
+	
+
+	// 更新紀錄
+	void update(ProductEntity e);
+
+	// 刪除紀錄
+	void delete(int id);
+
+	// 查詢所有紀錄
+	List<ProductEntity> findAll();
+}

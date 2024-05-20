@@ -1,0 +1,34 @@
+package initializer;
+
+import java.io.File;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import service.ICategoryService;
+import service.IProductEntityService;
+import service.Impl.CategoryServiceImpl;
+import service.Impl.ProductEntityServiceImpl;
+import utils.JSONUtil;
+
+public class Initializer {
+	ICategoryService categoryService;
+	IProductEntityService productEntityService;
+
+	public Initializer() {
+		categoryService = new CategoryServiceImpl();
+		productEntityService = new ProductEntityServiceImpl();
+	}
+
+	public static void initialize_product() {
+		File file = new File("安全帽.json");
+		JSONObject jsonObject = JSONUtil.createJSONObject(file);
+		
+		JSONArray array = jsonObject.getJSONArray("安全帽");
+		for (Object object : array) {
+			JSONObject object2 = (JSONObject) object;
+			System.out.println(object2.getString("型號"));
+		}
+	}
+	
+}

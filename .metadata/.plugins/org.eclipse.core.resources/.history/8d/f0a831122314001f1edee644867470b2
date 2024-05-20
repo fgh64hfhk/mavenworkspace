@@ -1,0 +1,33 @@
+package dao.Impl;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import dao.IProductEntityDao;
+import model.ProductEntity;
+
+public class ProductEntityDaoImpl implements IProductEntityDao {
+
+	SessionFactory factory;
+
+	@Override
+	public ProductEntity findById(Integer productEntityId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ProductEntity save(ProductEntity productEntity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ProductEntity> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

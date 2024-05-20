@@ -1,0 +1,32 @@
+package listener;
+
+import jakarta.servlet.ServletContextListener;
+
+public class ConfigurationSetupListener implements ServletContextListener {
+
+	public void contextInitialized(ServletContextEvent sce) {
+		System.out.println("================ ConfigurationSetupListener =================");
+		ServletContext sc = sce.getServletContext();
+		GlobalService globalService = new GlobalService();
+		sc.setAttribute("globalService", globalService);
+		String target2 = sc.getRealPath("/WEB-INF/classes/hibernate.cfg.xml");
+		String source2 = null;
+		if (globalService.getDbType().toUpperCase().equals("M")) {
+			source2 = sc.getRealPath("/WEB-INF/classes/hibernateMySQL.cfg.xml");
+		} else if (globalService.getDbType().toUpperCase().equals("S")) {
+			source2 = sc.getRealPath("/WEB-INF/classes/hibernateSQLServer.cfg.xml");
+		}
+		try {
+			fileCopy(source2, target2);
+			System.out.println("資料庫類型: " + globalService.getDbType() + ", db.properties / hibernate.cfg.xml 設定成功");
+		} catch (IOException e) {
+			System.out.println("資料庫類型: " + globalService.getDbType() + ", db.properties / hibernate.cfg.xml 設定失敗");
+			e.printStackTrace();
+		}
+
+	}
+	
+	public void contextDestroyed(ServletContextEvent sce) {
+	}
+
+}

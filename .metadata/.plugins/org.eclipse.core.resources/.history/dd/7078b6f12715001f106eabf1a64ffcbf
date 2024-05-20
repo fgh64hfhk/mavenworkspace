@@ -1,0 +1,17 @@
+package initializer;
+
+import service.ICategoryService;
+import service.IProductEntityService;
+import service.Impl.CategoryServiceImpl;
+import service.Impl.ProductEntityServiceImpl;
+
+public class Initializer {
+	ICategoryService categoryService;
+	IProductEntityService productEntityService;
+
+	public Initializer() {
+		categoryService = new CategoryServiceImpl();
+		productEntityService = new ProductEntityServiceImpl();
+	}
+	
+}

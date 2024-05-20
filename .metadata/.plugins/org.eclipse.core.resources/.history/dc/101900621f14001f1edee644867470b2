@@ -1,0 +1,7 @@
+package listener;
+
+import jakarta.servlet.ServletContextListener;
+
+public class ConfigurationSetupListener implements ServletContextListener {
+
+}

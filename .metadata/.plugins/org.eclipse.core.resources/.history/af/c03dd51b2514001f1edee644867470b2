@@ -1,0 +1,17 @@
+package service;
+
+import java.util.List;
+
+import ch04.ex01.model.ProductEntity;
+
+public interface IProductEntityService {
+
+	ProductEntity findById(Integer productEntityId);
+	
+	ProductEntity findByName(String productEntityName);
+
+	ProductEntity save(ProductEntity productEntity);
+
+	List<ProductEntity> findAll();
+
+}

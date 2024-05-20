@@ -1,0 +1,31 @@
+package listener;
+
+import org.hibernate.SessionFactory;
+
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import utils.HibernateUtils;
+
+public class WebAppContextListener implements ServletContextListener {
+	
+	private SessionFactory factory;
+
+	public void contextInitialized(ServletContextEvent sce) {
+		
+		System.out.println("================ WebAppContextListener =================");
+		
+    	System.out.println("================ 1. start create factory =================");
+    	factory = HibernateUtils.getSessionFactory();
+    	System.out.println("================ 2. finish create factory =================");
+
+		System.out.println("================ WebAppContextListener End =================");
+
+	}
+
+	public void contextDestroyed(ServletContextEvent sce) {
+		System.out.println("================ 3 start close factory =================");
+    	factory.close();
+    	System.out.println("================ 4. finish close factory =================");
+	}
+
+}

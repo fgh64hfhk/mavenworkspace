@@ -1,0 +1,85 @@
+package service.Impl;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import dao.ICategoryDao;
+import dao.Impl.CategoryDaoImpl;
+import model.Category;
+import service.ICategoryService;
+import utils.HibernateUtils;
+
+public class CategoryServiceImpl implements ICategoryService {
+
+	ICategoryDao categoryDao;
+	SessionFactory factory;
+
+	public CategoryServiceImpl() {
+		this.categoryDao = new CategoryDaoImpl();
+		this.factory = HibernateUtils.getSessionFactory();
+	}
+
+	@Override
+	public Category findById(Integer categoryId) {
+		Category category = null;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			HibernateUtils.close();
+		}
+		return category;
+	}
+
+	@Override
+	public Category findByName(String categoryName) {
+		Category category = null;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			HibernateUtils.close();
+		}
+		return category;
+	}
+
+	@Override
+	public Category save(Category category) {
+		Category category = null;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			HibernateUtils.close();
+		}
+		return null;
+	}
+
+	@Override
+	public List<Category> findAll() {
+		List<Category> categories = null;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			HibernateUtils.close();
+		}
+		return categories;
+	}
+
+}

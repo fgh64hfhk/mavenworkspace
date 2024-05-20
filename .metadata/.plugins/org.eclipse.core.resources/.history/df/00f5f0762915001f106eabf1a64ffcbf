@@ -1,0 +1,15 @@
+import java.io.File;
+import java.io.FileWriter;
+
+public class JSONUtilTest {
+	public void testCreateJSONObject() {
+		// 創建一個臨時的 JSON 文件
+		File tempFile = null;
+		try {
+			tempFile = File.createTempFile("test", ".json");
+			FileWriter fileWriter = new FileWriter(tempFile);
+			fileWriter.write("{\"key\":\"value\"}");
+			fileWriter.close();
+		}
+	}
+}

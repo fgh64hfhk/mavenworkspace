@@ -1,0 +1,68 @@
+package listener;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import initializer.Initializer;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
+import utils.HibernateUtils;
+
+@WebListener
+public class WebAppContextListener implements ServletContextListener {
+	
+	private SessionFactory factory;
+	private Session session;
+
+	public void contextInitialized(ServletContextEvent sce) {
+		
+		System.out.println("================ WebAppContextListener =================");
+		
+    	System.out.println("================ 1. start create factory =================");
+    	factory = HibernateUtils.getSessionFactory();
+    	session = factory.openSession();
+    	System.out.println("================ 2. finish create factory =================");
+
+    	System.out.println("================ 3. start Initializer =================");
+    	Initializer initializer = new Initializer();
+    	initializer.initialize_product(session);
+    	System.out.println("================ 4. finish Initializer =================");
+    	
+		System.out.println("================ WebAppContextListener End =================");
+
+	}
+
+	@Override
+    public void contextDestroyed(ServletContextEvent sce) {
+		System.out.println("================ 3 start close factory =================");
+    	factory.close();
+    	System.out.println("================ 4. finish close factory =================");
+        // 在应用程序停止时执行清理操作
+        // 例如关闭数据库连接、注销 JDBC 驱动程序、停止后台线程等
+        // 清理代码放在这里
+        // 示例代码：
+        cleanupDatabase();
+        deregisterJDBCDriver();
+        stopBackgroundThreads();
+    }
+
+    private void cleanupDatabase() {
+        // 实现关闭数据库连接的逻辑
+        // 例如：
+        // databaseConnection.close();
+    }
+
+    private void deregisterJDBCDriver() {
+        // 实现注销 JDBC 驱动程序的逻辑
+        // 例如：
+        // DriverManager.deregisterDriver(driver);
+    }
+
+    private void stopBackgroundThreads() {
+        // 实现停止后台线程的逻辑
+        // 例如：
+        // backgroundThread.stop();
+    }
+
+}

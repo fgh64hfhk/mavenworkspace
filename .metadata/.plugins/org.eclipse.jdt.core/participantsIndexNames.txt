@@ -1,0 +1,5 @@
+INDEX VERSION 1.134
+C:\Users\user\eclipse-mavenworkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3292394435.index
+\HibernateEC_v1\src\main\java
+C:\Users\user\eclipse-mavenworkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2544347207.index
+\HibernateEC_v2\src\main\java
